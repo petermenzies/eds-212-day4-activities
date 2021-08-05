@@ -1,0 +1,50 @@
+---
+title: "r-exploring"
+author: "Peter Menzies"
+date: "8/5/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(skimr)
+library(GGally)
+```
+
+### Exploring diamonds dataset
+
+```{r}
+names(diamonds)
+
+dim(diamonds)
+
+summary(diamonds)
+
+head(diamonds)
+
+tail(diamonds)
+
+skimr::skim(diamonds)
+```
+
+### Create a pairs plot using ggpairs()
+
+```{r}
+ggpairs(diamonds)
+```
+```{r}
+# ggplot scatter plot of diaond price as a function of size
+ggplot(data = diamonds, aes(x = carat, y = price)) +
+  geom_point()
+```
+### Create a histogram showing distribution of values in the `carat` column
+
+```{r}
+ggplot(data = diamonds, aes(x = carat)) +
+  geom_histogram()
+```
+
+
+
